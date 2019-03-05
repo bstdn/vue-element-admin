@@ -12,6 +12,8 @@
     "test": "npm run lint"
   },
   "dependencies": {
+    "element-ui": "2.4.6",
+    "normalize.css": "7.0.0",
     "vue": "2.5.17",
     "vue-router": "3.0.1"
   },
@@ -40,6 +42,7 @@
     "html-webpack-plugin": "4.0.0-alpha",
     "mini-css-extract-plugin": "0.4.1",
     "node-notifier": "5.2.1",
+    "node-sass": "^4.7.2",
     "optimize-css-assets-webpack-plugin": "5.0.0",
     "ora": "3.0.0",
     "portfinder": "1.0.16",
@@ -47,6 +50,7 @@
     "postcss-loader": "2.1.6",
     "postcss-url": "7.3.2",
     "rimraf": "2.6.2",
+    "sass-loader": "7.0.3",
     "script-ext-html-webpack-plugin": "2.0.1",
     "semver": "5.5.0",
     "shelljs": "0.8.2",
