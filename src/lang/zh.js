@@ -10,6 +10,10 @@ export default {
     'menu1-3': '菜单1-3',
     menu2: '菜单2'
   },
+  navbar: {
+    logOut: '退出登录',
+    dashboard: '首页'
+  },
   login: {
     title: '系统登录',
     logIn: '登录',

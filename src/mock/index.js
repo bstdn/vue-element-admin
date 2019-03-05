@@ -11,5 +11,6 @@ Mock.XHR.prototype.send = function() {
 
 Mock.mock(/\/login\/login/, 'post', loginAPI.loginByUsername)
 Mock.mock(/\/user\/info\.*/, 'get', loginAPI.getUserInfo)
+Mock.mock(/\/login\/logout/, 'post', loginAPI.logout)
 
 export default Mock

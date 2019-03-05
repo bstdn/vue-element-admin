@@ -19,3 +19,10 @@ export function getUserInfo(token) {
     params: { token }
   })
 }
+
+export function logout() {
+  return request({
+    url: '/login/logout',
+    method: 'post'
+  })
+}
