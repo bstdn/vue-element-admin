@@ -40,3 +40,11 @@ export default new Router({
   scrollBehavior: () => ({ y: 0 }),
   routes: constantRouterMap
 })
+
+export const asyncRouterMap = [
+  {
+    path: '*',
+    redirect: '/404',
+    hidden: true
+  }
+]
