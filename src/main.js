@@ -10,12 +10,17 @@ import './styles/index.scss'
 import App from './App'
 import router from './router'
 
-Vue.use(Element)
+import i18n from './lang'
+
+Vue.use(Element, {
+  i18n: (key, value) => i18n.t(key, value)
+})
 
 Vue.config.productionTip = false
 
 new Vue({
   el: '#app',
   router,
+  i18n,
   render: h => h(App)
 })
