@@ -12,7 +12,8 @@ export default {
   },
   navbar: {
     logOut: 'Log Out',
-    dashboard: 'Dashboard'
+    dashboard: 'Dashboard',
+    size: 'Global Size'
   },
   login: {
     title: 'Login Form',
