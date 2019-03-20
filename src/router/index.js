@@ -5,7 +5,7 @@ Vue.use(Router)
 
 import Layout from '../views/layout/Layout'
 
-export const constantRouterMap = [
+export const constantRoutes = [
   {
     path: '/redirect',
     component: Layout,
@@ -49,10 +49,10 @@ export const constantRouterMap = [
 
 export default new Router({
   scrollBehavior: () => ({ y: 0 }),
-  routes: constantRouterMap
+  routes: constantRoutes
 })
 
-export const asyncRouterMap = [
+export const asyncRoutes = [
   {
     path: '/nested',
     component: Layout,
