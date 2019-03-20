@@ -6,6 +6,7 @@
       :background-color="variables.menuBg"
       :text-color="variables.menuText"
       :active-text-color="variables.menuActiveText"
+      :collapse-transition="false"
       mode="vertical"
     >
       <sidebar-item v-for="route in permission_routers" :key="route.path" :item="route" :base-path="route.path"/>
@@ -27,9 +28,6 @@ export default {
       'permission_routers',
       'sidebar'
     ]),
-    routes() {
-      return this.$router.options.routes
-    },
     variables() {
       return variables
     },
