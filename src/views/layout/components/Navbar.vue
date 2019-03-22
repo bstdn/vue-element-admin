@@ -66,13 +66,11 @@ export default {
 <style rel="stylesheet/scss" lang="scss" scoped>
   .navbar {
     height: 50px;
-    line-height: 50px;
-    box-shadow: 0 1px 3px 0 rgba(0,0,0,.12), 0 0 3px 0 rgba(0,0,0,.04);
+    overflow: hidden;
     .hamburger-container {
       line-height: 46px;
       height: 100%;
       float: left;
-      padding: 0 10px;
       cursor: pointer;
       transition: background .3s;
       &:hover {
