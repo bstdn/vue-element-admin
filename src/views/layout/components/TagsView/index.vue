@@ -29,7 +29,7 @@
 
 <script>
 import ScrollPane from './ScrollPane'
-import { generateTitle } from '../../../../utils/i18n'
+import { generateTitle } from '@/utils/i18n'
 import path from 'path'
 
 export default {

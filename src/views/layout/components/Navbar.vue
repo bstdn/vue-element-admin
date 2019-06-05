@@ -31,10 +31,10 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import Breadcrumb from '../../../components/Breadcrumb'
-import Hamburger from '../../../components/Hamburger'
-import SizeSelect from '../../../components/SizeSelect'
-import LangSelect from '../../../components/LangSelect'
+import Breadcrumb from '@/components/Breadcrumb'
+import Hamburger from '@/components/Hamburger'
+import SizeSelect from '@/components/SizeSelect'
+import LangSelect from '@/components/LangSelect'
 
 export default {
   components: {
