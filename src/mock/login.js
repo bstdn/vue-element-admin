@@ -17,7 +17,7 @@ const userMap = {
 }
 
 export default {
-  loginByUsername: config => {
+  login: config => {
     const { username } = JSON.parse(config.body)
     return userMap[username]
   },

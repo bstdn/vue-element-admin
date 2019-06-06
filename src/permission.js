@@ -23,14 +23,14 @@ router.beforeEach((to, from, next) => {
       NProgress.done()
     } else {
       if (store.getters.roles.length === 0) {
-        store.dispatch('GetUserInfo').then(res => {
+        store.dispatch('getUserInfo').then(res => {
           const roles = res.data.roles
-          store.dispatch('GenerateRoutes', { roles }).then(accessRoutes => {
+          store.dispatch('generateRoutes', { roles }).then(accessRoutes => {
             router.addRoutes(accessRoutes)
             next({ ...to, replace: true })
           })
         }).catch(err => {
-          store.dispatch('FedLogOut').then(() => {
+          store.dispatch('resetToken').then(() => {
             Message.error(err)
             next({ path: '/' })
           })

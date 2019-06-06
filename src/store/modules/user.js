@@ -1,4 +1,4 @@
-import { loginByUsername, getUserInfo, logout } from '@/api/login'
+import { login, getUserInfo, logout } from '@/api/login'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 
 const user = {
@@ -23,10 +23,10 @@ const user = {
     }
   },
   actions: {
-    LoginByUsername({ commit }, userInfo) {
+    login({ commit }, userInfo) {
       const username = userInfo.username.trim()
       return new Promise((resolve, reject) => {
-        loginByUsername(username, userInfo.password).then(response => {
+        login(username, userInfo.password).then(response => {
           if (!response.data) {
             reject('Login failed, please try again.')
           }
@@ -39,7 +39,7 @@ const user = {
         })
       })
     },
-    GetUserInfo({ commit, state }) {
+    getUserInfo({ commit, state }) {
       return new Promise((resolve, reject) => {
         getUserInfo(state.token).then(response => {
           if (!response.data) {
@@ -60,7 +60,7 @@ const user = {
         })
       })
     },
-    LogOut({ commit, state }) {
+    logout({ commit, state }) {
       return new Promise((resolve, reject) => {
         logout(state.token).then(() => {
           commit('SET_TOKEN', '')
@@ -72,7 +72,7 @@ const user = {
         })
       })
     },
-    FedLogOut({ commit }) {
+    resetToken({ commit }) {
       return new Promise(resolve => {
         commit('SET_TOKEN', '')
         removeToken()
