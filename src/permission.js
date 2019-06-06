@@ -4,7 +4,7 @@ import { Message } from 'element-ui'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import { getToken } from './utils/auth'
-import getPageTitle from '@/utils/getPageTitle'
+import getPageTitle from '@/utils/get-page-title'
 
 NProgress.configure({ showSpinner: false })
 
