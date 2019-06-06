@@ -52,10 +52,10 @@ export default {
   },
   methods: {
     toggleSideBar() {
-      this.$store.dispatch('toggleSideBar')
+      this.$store.dispatch('app/toggleSideBar')
     },
     logout() {
-      this.$store.dispatch('logout').then(() => {
+      this.$store.dispatch('user/logout').then(() => {
         location.reload()
       })
     }

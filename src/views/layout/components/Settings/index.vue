@@ -35,7 +35,7 @@ export default {
         return this.$store.state.settings.fixedHeader
       },
       set(val) {
-        this.$store.dispatch('changeSetting', {
+        this.$store.dispatch('settings/changeSetting', {
           key: 'fixedHeader',
           value: val
         })
@@ -46,7 +46,7 @@ export default {
         return this.$store.state.settings.tagsView
       },
       set(val) {
-        this.$store.dispatch('changeSetting', {
+        this.$store.dispatch('settings/changeSetting', {
           key: 'tagsView',
           value: val
         })
@@ -55,7 +55,7 @@ export default {
   },
   methods: {
     themeChange(val) {
-      this.$store.dispatch('changeSetting', {
+      this.$store.dispatch('settings/changeSetting', {
         key: 'theme',
         value: val
       })

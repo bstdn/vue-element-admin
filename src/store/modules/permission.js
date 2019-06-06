@@ -24,31 +24,36 @@ function filterAsyncRoutes(routes, roles) {
   return res
 }
 
-const permission = {
-  state: {
-    routes: [],
-    addRoutes: []
-  },
-  mutations: {
-    SET_ROUTES: (state, routes) => {
-      state.addRoutes = routes
-      state.routes = constantRoutes.concat(routes)
-    }
-  },
-  actions: {
-    generateRoutes({ commit }, roles) {
-      return new Promise(resolve => {
-        let accessedRoutes
-        if (roles.includes('admin')) {
-          accessedRoutes = asyncRoutes || []
-        } else {
-          accessedRoutes = filterAsyncRoutes(asyncRoutes, roles)
-        }
-        commit('SET_ROUTES', accessedRoutes)
-        resolve(accessedRoutes)
-      })
-    }
+const state = {
+  routes: [],
+  addRoutes: []
+}
+
+const mutations = {
+  SET_ROUTES: (state, routes) => {
+    state.addRoutes = routes
+    state.routes = constantRoutes.concat(routes)
   }
 }
 
-export default permission
+const actions = {
+  generateRoutes({ commit }, roles) {
+    return new Promise(resolve => {
+      let accessedRoutes
+      if (roles.includes('admin')) {
+        accessedRoutes = asyncRoutes || []
+      } else {
+        accessedRoutes = filterAsyncRoutes(asyncRoutes, roles)
+      }
+      commit('SET_ROUTES', accessedRoutes)
+      resolve(accessedRoutes)
+    })
+  }
+}
+
+export default {
+  namespaced: true,
+  state,
+  mutations,
+  actions
+}

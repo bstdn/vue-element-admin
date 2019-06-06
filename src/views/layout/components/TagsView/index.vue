@@ -101,14 +101,14 @@ export default {
       for (const tag of affixTags) {
         // Must have tag name
         if (tag.name) {
-          this.$store.dispatch('addVisitedView', tag)
+          this.$store.dispatch('tagsView/addVisitedView', tag)
         }
       }
     },
     addTags() {
       const { name } = this.$route
       if (name) {
-        this.$store.dispatch('addView', this.$route)
+        this.$store.dispatch('tagsView/addView', this.$route)
       }
       return false
     },
@@ -120,7 +120,7 @@ export default {
             this.$refs.scrollPane.moveToTarget(tag)
             // when query is different then update
             if (tag.to.fullPath !== this.$route.fullPath) {
-              this.$store.dispatch('updateVisitedView', this.$route)
+              this.$store.dispatch('tagsView/updateVisitedView', this.$route)
             }
             break
           }
@@ -128,7 +128,7 @@ export default {
       })
     },
     refreshSelectedTag(view) {
-      this.$store.dispatch('delCachedView', view).then(() => {
+      this.$store.dispatch('tagsView/delCachedView', view).then(() => {
         const { fullPath } = view
         this.$nextTick(() => {
           this.$router.replace({
@@ -138,7 +138,7 @@ export default {
       })
     },
     closeSelectedTag(view) {
-      this.$store.dispatch('delView', view).then(({ visitedViews }) => {
+      this.$store.dispatch('tagsView/delView', view).then(({ visitedViews }) => {
         if (this.isActive(view)) {
           this.toLastView(visitedViews)
         }
@@ -146,12 +146,12 @@ export default {
     },
     closeOthersTags() {
       this.$router.push(this.selectedTag)
-      this.$store.dispatch('delOthersViews', this.selectedTag).then(() => {
+      this.$store.dispatch('tagsView/delOthersViews', this.selectedTag).then(() => {
         this.moveToCurrentTag()
       })
     },
     closeAllTags(view) {
-      this.$store.dispatch('delAllViews').then(({ visitedViews }) => {
+      this.$store.dispatch('tagsView/delAllViews').then(({ visitedViews }) => {
         if (this.affixTags.some(tag => tag.path === view.path)) {
           return
         }
