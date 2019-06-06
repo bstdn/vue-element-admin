@@ -26,5 +26,11 @@ export default {
     logIn: 'Log in',
     username: 'Username',
     password: 'Password'
+  },
+  settings: {
+    title: 'Page style setting',
+    theme: 'Theme Color',
+    tagsView: 'Open Tags-View',
+    fixedHeader: 'Fixed Header'
   }
 }
