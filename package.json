@@ -1,6 +1,6 @@
 {
   "name": "vue-element-admin",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A vue admin template with Element UI & axios & iconfont & permission control & lint",
   "author": "何秀钢 <xiugang.he@chukou1.com>",
   "scripts": {
@@ -14,9 +14,8 @@
   },
   "dependencies": {
     "axios": "0.18.0",
-    "element-ui": "2.4.6",
+    "element-ui": "2.9.1",
     "js-cookie": "2.2.0",
-    "mockjs": "1.0.1-beta3",
     "normalize.css": "7.0.0",
     "nprogress": "0.2.0",
     "vue": "2.5.17",
@@ -48,6 +47,7 @@
     "friendly-errors-webpack-plugin": "1.7.0",
     "html-webpack-plugin": "4.0.0-alpha",
     "mini-css-extract-plugin": "0.4.1",
+    "mockjs": "1.0.1-beta3",
     "node-notifier": "5.2.1",
     "node-sass": "^4.7.2",
     "optimize-css-assets-webpack-plugin": "5.0.0",
