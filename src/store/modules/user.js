@@ -42,19 +42,18 @@ const user = {
     getUserInfo({ commit, state }) {
       return new Promise((resolve, reject) => {
         getUserInfo(state.token).then(response => {
-          if (!response.data) {
+          const data = response.data
+          if (!data) {
             reject('Verification failed, please login again.')
           }
-          const data = response.data
-          if (data.roles && data.roles.length > 0) {
-            commit('SET_ROLES', data.roles)
-          } else {
-            reject('getInfo: roles must be a non-null array!')
+          const { roles, name, avatar } = data
+          if (!roles || roles.length <= 0) {
+            reject('getUserInfo: roles must be a non-null array!')
           }
-
-          commit('SET_NAME', data.name)
-          commit('SET_AVATAR', data.avatar)
-          resolve(response)
+          commit('SET_ROLES', roles)
+          commit('SET_NAME', name)
+          commit('SET_AVATAR', avatar)
+          resolve(data)
         }).catch(error => {
           reject(error)
         })
@@ -75,6 +74,7 @@ const user = {
     resetToken({ commit }) {
       return new Promise(resolve => {
         commit('SET_TOKEN', '')
+        commit('SET_ROLES', [])
         removeToken()
         resolve()
       })

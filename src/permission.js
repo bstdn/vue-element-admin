@@ -15,31 +15,30 @@ function hasPermission(roles, permissionRoles) {
 
 const whiteList = ['/login']
 
-router.beforeEach((to, from, next) => {
+router.beforeEach(async(to, from, next) => {
   NProgress.start()
   if (getToken()) {
     if (to.path === '/login') {
       next({ path: '/' })
       NProgress.done()
     } else {
-      if (store.getters.roles.length === 0) {
-        store.dispatch('getUserInfo').then(res => {
-          const roles = res.data.roles
-          store.dispatch('generateRoutes', { roles }).then(accessRoutes => {
-            router.addRoutes(accessRoutes)
-            next({ ...to, replace: true })
-          })
-        }).catch(err => {
-          store.dispatch('resetToken').then(() => {
-            Message.error(err)
-            next({ path: '/' })
-          })
-        })
-      } else {
+      if (store.getters.roles && store.getters.roles.length > 0) {
         if (hasPermission(store.getters.roles, to.meta.roles)) {
           next()
         } else {
           next({ path: '/401', replace: true, query: { noGoBack: true }})
+        }
+      } else {
+        try {
+          const { roles } = await store.dispatch('getUserInfo')
+          const accessRoutes = await store.dispatch('generateRoutes', roles)
+          router.addRoutes(accessRoutes)
+          next({ ...to, replace: true })
+        } catch (err) {
+          await store.dispatch('resetToken')
+          Message.error(err || 'Has Error')
+          next(`/login?redirect=${to.path}`)
+          NProgress.done()
         }
       }
     }
@@ -47,7 +46,7 @@ router.beforeEach((to, from, next) => {
     if (whiteList.indexOf(to.path) !== -1) {
       next()
     } else {
-      next('/login?redirect=' + to.path)
+      next(`/login?redirect=${to.path}`)
       NProgress.done()
     }
   }
