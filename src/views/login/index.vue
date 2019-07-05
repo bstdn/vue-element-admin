@@ -27,7 +27,7 @@
           :placeholder="$t('login.password')"
           name="password"
           auto-complete="on"
-          @keyup.enter.native="handlerLogin"
+          @keyup.enter.native="handleLogin"
         />
         <span class="show-pwd" @click="showPwd">
           <svg-icon :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'" />
@@ -37,7 +37,8 @@
         :loading="loading"
         type="primary"
         style="width: 100%;"
-        @click.native.prevent="handlerLogin">
+        @click.native.prevent="handleLogin"
+      >
         {{ $t('login.logIn') }}
       </el-button>
     </el-form>
@@ -79,7 +80,7 @@ export default {
     showPwd() {
       this.passwordType = this.passwordType === 'password' ? '' : 'password'
     },
-    handlerLogin() {
+    handleLogin() {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.loading = true
