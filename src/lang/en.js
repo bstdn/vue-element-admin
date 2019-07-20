@@ -15,6 +15,12 @@ export default {
     dashboard: 'Dashboard',
     size: 'Global Size'
   },
+  tagsView: {
+    refresh: 'Refresh',
+    close: 'Close',
+    closeOthers: 'Close Others',
+    closeAll: 'Close All'
+  },
   login: {
     title: 'Login Form',
     logIn: 'Log in',
