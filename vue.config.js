@@ -1,11 +1,12 @@
 'use strict'
 const path = require('path')
+const defaultSettings = require('./src/settings.js')
 
 function resolve(dir) {
   return path.join(__dirname, dir)
 }
 
-const name = 'Vue Element Admin'
+const name = defaultSettings.title || 'Vue Element Admin'
 
 const port = process.env.port || process.env.npm_config_port || 8080
 

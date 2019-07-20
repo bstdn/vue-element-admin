@@ -26,5 +26,11 @@ export default {
     logIn: '登录',
     username: '账号',
     password: '密码'
+  },
+  settings: {
+    title: '系统布局配置',
+    theme: '主题色',
+    tagsView: '开启 Tags-View',
+    fixedHeader: '固定 Header'
   }
 }
