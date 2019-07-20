@@ -2,7 +2,8 @@
   <div class="login-container">
     <el-form ref="loginForm" :model="loginForm" :rules="loginForm" class="login-form" auto-complete="on" label-position="left">
       <div class="title-container">
-        <h3 class="title">Login Form</h3>
+        <h3 class="title">{{ $t('login.title') }}</h3>
+        <lang-select class="set-language" />
       </div>
       <el-form-item prop="username">
         <span class="svg-container">
@@ -10,7 +11,7 @@
         </span>
         <el-input
           v-model="loginForm.username"
-          placeholder="Username"
+          :placeholder="$t('login.username')"
           name="username"
           type="text"
           auto-complete="on"
@@ -23,7 +24,7 @@
         <el-input
           v-model="loginForm.password"
           :type="passwordType"
-          placeholder="Password"
+          :placeholder="$t('login.password')"
           name="password"
           auto-complete="on"
           @keyup.enter.native="handleLogin"
@@ -38,15 +39,20 @@
         style="width: 100%;"
         @click.native.prevent="handleLogin"
       >
-        Log in
+        {{ $t('login.logIn') }}
       </el-button>
     </el-form>
   </div>
 </template>
 
 <script>
+import LangSelect from '@/components/LangSelect'
+
 export default {
   name: 'Login',
+  components: {
+    LangSelect
+  },
   data() {
     return {
       loginForm: {
