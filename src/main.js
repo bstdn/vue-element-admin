@@ -1,5 +1,7 @@
 import Vue from 'vue'
 
+import Cookies from 'js-cookie'
+
 import 'normalize.css/normalize.css'
 
 import ElementUI from 'element-ui'
@@ -20,6 +22,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 Vue.use(ElementUI, {
+  size: Cookies.get('size') || 'medium',
   i18n: (key, value) => i18n.t(key, value)
 })
 
