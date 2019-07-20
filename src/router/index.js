@@ -7,6 +7,16 @@ import Layout from '@/layout'
 
 export const constantRoutes = [
   {
+    path: '/404',
+    component: () => import('@/views/errorPage/404'),
+    hidden: true
+  },
+  {
+    path: '/401',
+    component: () => import('@/views/errorPage/401'),
+    hidden: true
+  },
+  {
     path: '/',
     component: Layout,
     redirect: '/dashboard',
