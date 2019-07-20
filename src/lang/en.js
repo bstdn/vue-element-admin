@@ -10,6 +10,10 @@ export default {
     'menu1-3': 'Menu 1-3',
     menu2: 'Menu 2'
   },
+  navbar: {
+    logOut: 'Log Out',
+    dashboard: 'Dashboard'
+  },
   login: {
     title: 'Login Form',
     logIn: 'Log in',

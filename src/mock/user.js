@@ -61,5 +61,15 @@ export default [
         data: info
       }
     }
+  },
+  {
+    url: '/user/logout',
+    type: 'post',
+    response: () => {
+      return {
+        code: 20000,
+        data: 'success'
+      }
+    }
   }
 ]
