@@ -13,6 +13,11 @@ import store from './store'
 
 import i18n from './lang'
 import './icons'
+import './permission'
+
+if (process.env.NODE_ENV === 'development') {
+  require('./mock')
+}
 
 Vue.use(ElementUI, {
   i18n: (key, value) => i18n.t(key, value)
