@@ -20,3 +20,9 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 ```
+
+## License
+
+[MIT](https://github.com/bstdn/vue-element-admin/blob/master/LICENSE)
+
+Copyright (c) 2019-present, bstdn
