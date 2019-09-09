@@ -1,10 +1,11 @@
 <template>
   <el-scrollbar wrap-class="scrollbar-wrapper">
     <el-menu
-      :default-active="$route.path"
+      :default-active="activeMenu"
       :collapse="isCollapse"
       :background-color="variables.menuBg"
       :text-color="variables.menuText"
+      :unique-opened="false"
       :active-text-color="variables.menuActiveText"
       :collapse-transition="false"
       mode="vertical"
@@ -28,6 +29,14 @@ export default {
       'permission_routes',
       'sidebar'
     ]),
+    activeMenu() {
+      const route = this.$route
+      const { meta, path } = route
+      if (meta.activeMenu) {
+        return meta.activeMenu
+      }
+      return path
+    },
     variables() {
       return variables
     },
