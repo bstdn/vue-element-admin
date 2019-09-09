@@ -12,6 +12,22 @@
     "test": "npm run lint",
     "svgo": "svgo -f src/icons/svg --config=src/icons/svgo.yml"
   },
+  "keywords": [
+    "vue",
+    "admin",
+    "dashboard",
+    "element-ui",
+    "boilerplate",
+    "admin-template",
+    "management-system"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bstdn/vue-element-admin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bstdn/vue-element-admin/issues"
+  },
   "dependencies": {
     "axios": "0.19.0",
     "element-ui": "2.9.1",
