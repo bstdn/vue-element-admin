@@ -33,3 +33,9 @@ npm run build
 ```
 npm run lint
 ```
+
+## License
+
+[MIT](https://github.com/bstdn/vue-element-admin/blob/master/LICENSE)
+
+Copyright (c) 2019-present, bstdn
