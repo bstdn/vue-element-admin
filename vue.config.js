@@ -46,5 +46,16 @@ module.exports = {
         symbolId: 'icon-[name]'
       })
       .end()
+
+    // set preserveWhitespace
+    config.module
+      .rule('vue')
+      .use('vue-loader')
+      .loader('vue-loader')
+      .tap(options => {
+        options.compilerOptions.preserveWhitespace = true
+        return options
+      })
+      .end()
   }
 }
