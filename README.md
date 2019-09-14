@@ -2,7 +2,7 @@
 
 > A minimal vue admin template with Element UI & axios & iconfont & permission control & lint
 
-**The current version is `v4.0+` build on `vue-cli`. If you want to use the old version , you can switch branch to [vue-cli](https://github.com/bstdn/vue-element-admin/tree/vue-cli), it does not rely on `vue-cli`**
+**The current version is `v4.0+` build on `vue-cli`. If you want to use the old version , you can switch branch to [tree/2.3.0](https://github.com/bstdn/vue-element-admin/tree/2.3.0), it does not rely on `vue-cli`**
 
 
 
