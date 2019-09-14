@@ -1,16 +1,56 @@
 import Mock from 'mockjs'
-import loginAPI from './login'
+import { param2Obj } from '@/utils'
+import user from './user'
+
+const mocks = [
+  ...user
+]
 
 Mock.XHR.prototype.proxy_send = Mock.XHR.prototype.send
 Mock.XHR.prototype.send = function() {
   if (this.custom.xhr) {
     this.custom.xhr.withCredentials = this.withCredentials || false
+
+    if (this.responseType) {
+      this.custom.xhr.responseType = this.responseType
+    }
   }
   this.proxy_send(...arguments)
 }
 
-Mock.mock(/\/login\/login/, 'post', loginAPI.login)
-Mock.mock(/\/user\/info\.*/, 'get', loginAPI.getUserInfo)
-Mock.mock(/\/login\/logout/, 'post', loginAPI.logout)
+function XHR2ExpressReqWrap(respond) {
+  return function(options) {
+    let result = null
+    if (respond instanceof Function) {
+      const { body, type, url } = options
+      // https://expressjs.com/en/4x/api.html#req
+      result = respond({
+        method: type,
+        body: JSON.parse(body),
+        query: param2Obj(url)
+      })
+    } else {
+      result = respond
+    }
+    return Mock.mock(result)
+  }
+}
 
-export default Mock
+for (const i of mocks) {
+  Mock.mock(new RegExp(i.url), i.type || 'get', XHR2ExpressReqWrap(i.response))
+}
+
+// for mock server
+const responseFake = (url, type, respond) => {
+  return {
+    url: new RegExp(`/mock${url}`),
+    type: type || 'get',
+    response(req, res) {
+      res.json(Mock.mock(respond instanceof Function ? respond(req, res) : respond))
+    }
+  }
+}
+
+export default mocks.map(route => {
+  return responseFake(route.url, route.type, route.response)
+})

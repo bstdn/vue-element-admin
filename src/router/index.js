@@ -3,7 +3,7 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-import Layout from '@/views/layout/Layout'
+import Layout from '@/layout'
 
 export const constantRoutes = [
   {
@@ -46,11 +46,6 @@ export const constantRoutes = [
     ]
   }
 ]
-
-export default new Router({
-  scrollBehavior: () => ({ y: 0 }),
-  routes: constantRoutes
-})
 
 export const asyncRoutes = [
   {
@@ -108,9 +103,20 @@ export const asyncRoutes = [
       }
     ]
   },
-  {
-    path: '*',
-    redirect: '/404',
-    hidden: true
-  }
+  { path: '*', redirect: '/404', hidden: true }
 ]
+
+const createRouter = () => new Router({
+  // mode: 'history', // require service support
+  scrollBehavior: () => ({ y: 0 }),
+  routes: constantRoutes
+})
+
+const router = createRouter()
+
+export function resetRouter() {
+  const newRouter = createRouter()
+  router.matcher = newRouter.matcher
+}
+
+export default router
