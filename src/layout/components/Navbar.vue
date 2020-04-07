@@ -4,6 +4,7 @@
     <breadcrumb class="breadcrumb-container" />
     <div class="right-menu">
       <template v-if="device!=='mobile'">
+        <search class="right-menu-item" />
         <screenfull class="right-menu-item hover-effect" />
         <el-tooltip :content="$t('navbar.size')" effect="dark" placement="bottom">
           <size-select class="right-menu-item hover-effect" />
@@ -37,6 +38,7 @@ import Hamburger from '@/components/Hamburger'
 import Screenfull from '@/components/Screenfull'
 import SizeSelect from '@/components/SizeSelect'
 import LangSelect from '@/components/LangSelect'
+import Search from '@/components/HeaderSearch'
 
 export default {
   components: {
@@ -44,7 +46,8 @@ export default {
     Hamburger,
     Screenfull,
     SizeSelect,
-    LangSelect
+    LangSelect,
+    Search
   },
   computed: {
     ...mapGetters([
