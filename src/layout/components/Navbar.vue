@@ -4,6 +4,7 @@
     <breadcrumb class="breadcrumb-container" />
     <div class="right-menu">
       <template v-if="device!=='mobile'">
+        <screenfull class="right-menu-item hover-effect" />
         <el-tooltip :content="$t('navbar.size')" effect="dark" placement="bottom">
           <size-select class="right-menu-item hover-effect" />
         </el-tooltip>
@@ -33,6 +34,7 @@
 import { mapGetters } from 'vuex'
 import Breadcrumb from '@/components/Breadcrumb'
 import Hamburger from '@/components/Hamburger'
+import Screenfull from '@/components/Screenfull'
 import SizeSelect from '@/components/SizeSelect'
 import LangSelect from '@/components/LangSelect'
 
@@ -40,6 +42,7 @@ export default {
   components: {
     Breadcrumb,
     Hamburger,
+    Screenfull,
     SizeSelect,
     LangSelect
   },
