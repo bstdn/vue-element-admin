@@ -93,13 +93,9 @@ export default {
     }
   },
   methods: {
-    checkCapsLock({ shiftKey, key } = {}) {
-      if (key && key.length === 1) {
-        this.capsTooltip = shiftKey && (key >= 'a' && key <= 'z') || !shiftKey && (key >= 'A' && key <= 'Z')
-      }
-      if (key === 'CapsLock' && this.capsTooltip === true) {
-        this.capsTooltip = false
-      }
+    checkCapsLock(e) {
+      const { key } = e
+      this.capsTooltip = key && key.length === 1 && (key >= 'A' && key <= 'Z')
     },
     showPwd() {
       this.passwordType = this.passwordType === 'password' ? '' : 'password'

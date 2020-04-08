@@ -22,8 +22,8 @@
               {{ $t('navbar.dashboard') }}
             </el-dropdown-item>
           </router-link>
-          <el-dropdown-item divided>
-            <span style="display:block;" @click="logout">{{ $t('navbar.logOut') }}</span>
+          <el-dropdown-item divided @click.native="logout">
+            <span style="display:block;">{{ $t('navbar.logOut') }}</span>
           </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
@@ -60,21 +60,15 @@ export default {
     toggleSideBar() {
       this.$store.dispatch('app/toggleSideBar')
     },
-    logout() {
-      this.$store.dispatch('user/logout').then(() => {
-        location.reload()
-      })
+    async logout() {
+      await this.$store.dispatch('user/logout')
+      this.$router.push(`/login?redirect=${this.$route.fullPath}`)
     }
   }
 }
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-  .hasTagsView {
-    .navbar {
-      border-bottom: none;
-    }
-  }
   .navbar {
     height: 50px;
     overflow: hidden;

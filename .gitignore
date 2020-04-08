@@ -18,6 +18,6 @@ yarn-error.log*
 *.ntvs*
 *.njsproj
 *.sln
-*.sw?
+*.local
 
 package-lock.json

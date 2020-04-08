@@ -16,10 +16,17 @@ const BASE_URL = process.env.NODE_ENV === 'production'
 
 module.exports = {
   publicPath: BASE_URL,
+  outputDir: 'dist',
+  assetsDir: 'static',
   lintOnSave: process.env.NODE_ENV === 'development',
   productionSourceMap: false,
   devServer: {
-    port: port
+    port: port,
+    open: false,
+    overlay: {
+      warnings: false,
+      errors: true
+    }
   },
   configureWebpack: {
     name: name,
