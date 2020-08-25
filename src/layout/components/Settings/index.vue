@@ -18,6 +18,11 @@
         <el-switch v-model="fixedHeader" class="drawer-switch" />
       </div>
 
+      <div v-if="lang === 'zh'" class="drawer-item">
+        <span>菜单支持拼音搜索</span>
+        <el-switch v-model="supportPinyinSearch" class="drawer-switch" />
+      </div>
+
     </div>
   </div>
 </template>
@@ -51,6 +56,20 @@ export default {
           value: val
         })
       }
+    },
+    supportPinyinSearch: {
+      get() {
+        return this.$store.state.settings.supportPinyinSearch
+      },
+      set(val) {
+        this.$store.dispatch('settings/changeSetting', {
+          key: 'supportPinyinSearch',
+          value: val
+        })
+      }
+    },
+    lang() {
+      return this.$store.getters.language
     }
   },
   methods: {
