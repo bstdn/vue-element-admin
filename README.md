@@ -47,12 +47,6 @@ npm run lint
 
 ![输入图片说明](https://images.gitee.com/uploads/images/2019/1123/110037_d5fdfa35_1185106.png "dashboard.png")
 
-## 赞赏
-
-**请作者喝杯咖啡吧！(微信号/QQ号：99808359)**
-
-<img width="236" alt="微信扫一扫" src="https://images.gitee.com/uploads/images/2019/1122/203838_862f04ff_1185106.jpeg">
-
 ## License
 
 [MIT](https://github.com/bstdn/vue-element-admin/blob/master/LICENSE)
