@@ -1,6 +1,6 @@
 <template>
   <div class="errPage-container">
-    <el-button icon="arrow-left" class="pan-back-btn" @click="back">返回</el-button>
+    <el-button icon="el-icon-arrow-left" class="pan-back-btn" @click="back">返回</el-button>
     <el-row>
       <el-col :span="12">
         <h1 class="text-jumbo text-ginormous">Oops!</h1>
@@ -26,8 +26,7 @@ export default {
   name: 'Page401',
   data() {
     return {
-      errGif: errGif + '?' + +new Date(),
-      dialogVisible: false
+      errGif: errGif + '?' + +new Date()
     }
   },
   methods: {
