@@ -18,6 +18,11 @@
         <el-switch v-model="fixedHeader" class="drawer-switch" />
       </div>
 
+      <div class="drawer-item">
+        <span>{{ $t('settings.sidebarLogo') }}</span>
+        <el-switch v-model="sidebarLogo" class="drawer-switch" />
+      </div>
+
       <div v-if="lang === 'zh'" class="drawer-item">
         <span>菜单支持拼音搜索</span>
         <el-switch v-model="supportPinyinSearch" class="drawer-switch" />
@@ -53,6 +58,17 @@ export default {
       set(val) {
         this.$store.dispatch('settings/changeSetting', {
           key: 'tagsView',
+          value: val
+        })
+      }
+    },
+    sidebarLogo: {
+      get() {
+        return this.$store.state.settings.sidebarLogo
+      },
+      set(val) {
+        this.$store.dispatch('settings/changeSetting', {
+          key: 'sidebarLogo',
           value: val
         })
       }
