@@ -28,7 +28,7 @@
     "url": "https://github.com/bstdn/vue-element-admin/issues"
   },
   "dependencies": {
-    "axios": "0.19.0",
+    "axios": "1.6.0",
     "core-js": "3.6.5",
     "element-ui": "2.15.6",
     "fuse.js": "3.4.4",
